@@ -65,7 +65,7 @@ describe('testa componente app', () => {
     expect(pathname).toBe('/favorites');
   });
 
-  test('Se os componentes são direcionados para a página Pokémons Favoritados', () => {
+  test('Se os componentes são direcionados para a página de erro', () => {
     const { history } = renderWithRouter(<App />);
 
     history.push('/errado');
