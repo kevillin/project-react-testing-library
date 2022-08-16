@@ -1,1 +1,1 @@
-test('', () => {});
+test('testa componente app', () => {});
