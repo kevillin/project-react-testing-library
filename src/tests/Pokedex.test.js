@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
-const test = 'pokemon-name';
+const pokemon = 'pokemon-name';
 
 describe('Testa Pokedex', () => {
   test('Teste se a página contém um heading h2 com o texto Encountered pokémons', () => {
@@ -17,7 +17,7 @@ describe('Testa Pokedex', () => {
 
   test('Teste se é mostrado apenas um pokémon por vez', () => {
     renderWithRouter(<App />);
-    const pokemonName = screen.getByTestId(test);
+    const pokemonName = screen.getByTestId(pokemon);
     expect(pokemonName).toBeInTheDocument();
   });
 
@@ -27,7 +27,7 @@ describe('Testa Pokedex', () => {
     const proximoPokemon = screen.getByTestId('next-pokemon');
     userEvent.click(proximoPokemon);
 
-    const pokemonName = screen.getByTestId(test);
+    const pokemonName = screen.getByTestId(pokemon);
     expect(pokemonName).toHaveTextContent('Charmander');
   });
 
@@ -47,7 +47,7 @@ describe('Testa Pokedex', () => {
     const buttonAll = screen.getByRole('button', { name: 'All' });
     userEvent.click(buttonAll);
 
-    const pikachuName = screen.getByTestId('pokemon-name');
+    const pikachuName = screen.getByTestId(pokemon);
     expect(pikachuName).toHaveTextContent('Pikachu');
   });
 });
